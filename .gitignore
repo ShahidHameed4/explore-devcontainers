@@ -1,0 +1,94 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Log files
+*.log
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Docker
+.dockerignore
+
+# Temporary files
+tmp/
+temp/
+
+# Node modules (for future Node.js examples)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python (for future Python examples)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Java (for future Java examples)
+*.class
+*.jar
+*.war
+*.ear
+target/
+
+# Rust (for future Rust examples)
+target/
+Cargo.lock
+
+# Go (for Go examples)
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Build artifacts
+build/
+dist/
+out/
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Claude AI files
+.claude/
+
+# Docker installation scripts
+get-docker.sh

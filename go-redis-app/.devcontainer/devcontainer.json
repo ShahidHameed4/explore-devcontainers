@@ -1,0 +1,54 @@
+{
+  "name": "Go Redis Microservice",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  
+  // Configure port forwarding
+  "forwardPorts": [8080, 6379],
+  "portsAttributes": {
+    "8080": {
+      "label": "Go API",
+      "onAutoForward": "notify"
+    },
+    "6379": {
+      "label": "Redis",
+      "onAutoForward": "silent"
+    }
+  },
+
+  // VS Code extensions to install
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "golang.go",
+        "ms-vscode.vscode-json",
+        "redhat.vscode-yaml",
+        "ms-vscode-remote.remote-containers",
+        "bradlc.vscode-tailwindcss"
+      ],
+      "settings": {
+        "go.toolsManagement.checkForUpdates": "local",
+        "go.useLanguageServer": true,
+        "go.formatTool": "goimports",
+        "go.lintTool": "golangci-lint",
+        "go.testFlags": ["-v"],
+        "go.buildTags": "",
+        "go.testTimeout": "30s"
+      }
+    }
+  },
+
+  // Post-create command to set up the environment
+  "postCreateCommand": "go mod tidy && go mod download",
+
+  // Features to install
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  // Remote user
+  "remoteUser": "root"
+}

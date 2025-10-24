@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  # Go microservice
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ..:/workspace:cached
+    ports:
+      - "8080:8080"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - redis
+    networks:
+      - app-network
+    command: air -c .air.toml
+
+  # Redis cache service
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - app-network
+    command: redis-server --appendonly yes
+
+volumes:
+  redis-data:
+
+networks:
+  app-network:
+    driver: bridge
