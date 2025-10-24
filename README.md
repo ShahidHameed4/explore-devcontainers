@@ -20,6 +20,23 @@ cd go-redis-app
 curl http://localhost:8080/health
 ```
 
+### [FullStack Next.js + NestJS + PostgreSQL](./fullstack-nextjs-nestjs/)
+A complete full-stack development environment demonstrating:
+- Multi-service architecture (Frontend, Backend, Database)
+- Next.js 14 with App Router and Tailwind CSS
+- NestJS API with TypeORM and PostgreSQL
+- Cross-container networking and communication
+- Hot reloading for both frontend and backend
+- Comprehensive development helper scripts
+
+**Quick Start:**
+```bash
+cd fullstack-nextjs-nestjs
+./dev.sh start
+# Frontend: http://localhost:3000
+# Backend API: http://localhost:4000
+```
+
 ## 🛠️ Prerequisites
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running
@@ -77,6 +94,7 @@ Most examples include helper scripts for easy management:
 ```
 devcontainer-examples/
 ├── go-redis-app/           # Go microservice with Redis
+├── fullstack-nextjs-nestjs/ # FullStack Next.js + NestJS + PostgreSQL
 ├── README.md               # This file
 └── .gitignore             # Git ignore rules
 ```

@@ -1,0 +1,87 @@
+{
+  "name": "FullStack Next.js + NestJS + PostgreSQL",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "frontend",
+  "workspaceFolder": "/app",
+  "shutdownAction": "stopCompose",
+  
+  // Configure port forwarding
+  "forwardPorts": [3000, 4000, 5432],
+  "portsAttributes": {
+    "3000": {
+      "label": "Next.js Frontend",
+      "onAutoForward": "notify"
+    },
+    "4000": {
+      "label": "NestJS Backend API",
+      "onAutoForward": "notify"
+    },
+    "5432": {
+      "label": "PostgreSQL Database",
+      "onAutoForward": "silent"
+    }
+  },
+
+  // VS Code extensions to install
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-typescript-next",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-vscode.vscode-json",
+        "redhat.vscode-yaml",
+        "ms-vscode-remote.remote-containers",
+        "ms-vscode.vscode-docker",
+        "ms-mssql.mssql",
+        "cweijan.vscode-postgresql-client2",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.vscode-npm-scripts",
+        "formulahendry.auto-rename-tag",
+        "christian-kohler.path-intellisense",
+        "ms-vscode.vscode-typescript-next"
+      ],
+      "settings": {
+        "typescript.preferences.importModuleSpecifier": "relative",
+        "typescript.suggest.autoImports": true,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "explicit"
+        },
+        "emmet.includeLanguages": {
+          "typescript": "html",
+          "typescriptreact": "html"
+        },
+        "files.associations": {
+          "*.css": "tailwindcss"
+        },
+        "tailwindCSS.includeLanguages": {
+          "typescript": "html",
+          "typescriptreact": "html"
+        },
+        "npm.enableScriptExplorer": true,
+        "npm.scriptExplorerAction": "run"
+      }
+    }
+  },
+
+  // Post-create command to set up the environment
+  "postCreateCommand": "cd /app && npm install && cd ../backend && npm install",
+
+  // Features to install
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+
+  // Remote user
+  "remoteUser": "node",
+
+  // Mount the workspace
+  "mounts": [
+    "source=${localWorkspaceFolder}/frontend,target=/app,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/backend,target=/app/../backend,type=bind,consistency=cached"
+  ]
+}
