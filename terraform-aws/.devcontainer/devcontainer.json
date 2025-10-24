@@ -1,0 +1,96 @@
+{
+  "name": "Infrastructure-as-Code (Terraform + AWS)",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/home/devuser/workspace",
+  "shutdownAction": "none",
+  
+  // Mount AWS credentials securely
+  "mounts": [
+    "source=${localEnv:HOME}/.aws,target=/home/devuser/.aws,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder},target=/home/devuser/workspace,type=bind,consistency=cached"
+  ],
+
+  // VS Code extensions for Infrastructure-as-Code development
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "hashicorp.terraform",
+        "amazonwebservices.aws-toolkit-vscode",
+        "ms-python.python",
+        "ms-python.pylint",
+        "ms-python.black-formatter",
+        "redhat.vscode-yaml",
+        "ms-vscode.vscode-json",
+        "github.vscode-pull-request-github",
+        "ms-vscode-remote.remote-containers",
+        "ms-vscode.vscode-docker",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "ms-vscode.powershell",
+        "ms-vscode.vscode-github-issue-notebooks"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.formatting.provider": "black",
+        "python.formatting.blackArgs": ["--line-length", "88"],
+        "terraform.experimentalFeatures.validateOnSave": true,
+        "terraform.format.enable": true,
+        "terraform.format.formatOnSave": true,
+        "aws.profile": "default",
+        "aws.region": "us-east-1",
+        "files.associations": {
+          "*.tf": "terraform",
+          "*.tfvars": "terraform",
+          "*.hcl": "terraform"
+        },
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "explicit"
+        },
+        "files.exclude": {
+          "**/.terraform": true,
+          "**/.terraform.lock.hcl": false,
+          "**/terraform.tfstate": true,
+          "**/terraform.tfstate.backup": true,
+          "**/.terraform.tfstate.lock.info": true
+        }
+      }
+    }
+  },
+
+  // Post-create command to show versions and setup
+  "postCreateCommand": "/home/devuser/post-create.sh",
+
+  // Features to install
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  // Remote user
+  "remoteUser": "devuser",
+
+  // Environment variables
+  "containerEnv": {
+    "AWS_DEFAULT_REGION": "us-east-1",
+    "TF_PLUGIN_CACHE_DIR": "/home/devuser/.terraform.d/plugin-cache",
+    "TF_IN_AUTOMATION": "false"
+  },
+
+  // Port forwarding (if needed for local services)
+  "forwardPorts": [8080, 3000],
+  "portsAttributes": {
+    "8080": {
+      "label": "Local Service",
+      "onAutoForward": "silent"
+    },
+    "3000": {
+      "label": "Web Service",
+      "onAutoForward": "silent"
+    }
+  }
+}

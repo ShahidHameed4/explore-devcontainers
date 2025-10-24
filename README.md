@@ -37,6 +37,23 @@ cd fullstack-nextjs-nestjs
 # Backend API: http://localhost:4000
 ```
 
+### [Infrastructure-as-Code Terraform + AWS](./terraform-aws/)
+A specialized environment for Infrastructure-as-Code development demonstrating:
+- Terraform 1.6.6 with AWS provider
+- AWS CLI v2 with secure credential mounting
+- Python 3.11 with boto3 for AWS automation
+- Security tools (Checkov, TFLint, Terraform Compliance)
+- Complete CI/CD pipeline with GitHub Actions
+- Production-ready infrastructure examples
+
+**Quick Start:**
+```bash
+cd terraform-aws
+# Open in VS Code Dev Container
+# Configure AWS credentials: aws configure
+# Initialize Terraform: ./dev.sh tf-init
+```
+
 ## Prerequisites
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running
@@ -95,6 +112,7 @@ Most examples include helper scripts for easy management:
 explore-devcontainers/
 ├── go-redis-app/           # Go microservice with Redis
 ├── fullstack-nextjs-nestjs/ # FullStack Next.js + NestJS + PostgreSQL
+├── terraform-aws/          # Infrastructure-as-Code Terraform + AWS
 ├── README.md               # This file
 └── .gitignore             # Git ignore rules
 ```
@@ -126,5 +144,7 @@ To add a new example, include:
 - Rust + Actix + PostgreSQL
 - Java + Spring Boot + MySQL
 - PHP + Laravel + Redis
+- Kubernetes + Helm + ArgoCD
+- Machine Learning + Jupyter + TensorFlow
 
 Each example is designed to be self-contained and demonstrate specific development patterns and technologies.
