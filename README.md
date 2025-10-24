@@ -1,8 +1,8 @@
 # DevContainer Examples Collection
 
-A comprehensive collection of VS Code Dev Container examples demonstrating different technologies, frameworks, and development patterns.
+A comprehensive collection of VS Code Dev Container examples demonstrating different technologies, frameworks, and development patterns for experimental development environments.
 
-## 🚀 Available Examples
+## Available Examples
 
 ### [Go Redis Microservice](./go-redis-app/)
 A complete Go microservice with Redis cache layer demonstrating:
@@ -37,28 +37,28 @@ cd fullstack-nextjs-nestjs
 # Backend API: http://localhost:4000
 ```
 
-## 🛠️ Prerequisites
+## Prerequisites
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running
 - [VS Code](https://code.visualstudio.com/) with the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
-## 📚 What You'll Learn
+## Technical Concepts Demonstrated
 
 Each example demonstrates:
 
-1. **Container Orchestration**: How to set up multi-service development environments
-2. **Service Communication**: How containers communicate via Docker networks
-3. **Data Persistence**: How to persist data between container restarts
+1. **Container Orchestration**: Multi-service development environments
+2. **Service Communication**: Container networking via Docker networks
+3. **Data Persistence**: Data persistence between container restarts
 4. **Development Workflow**: Hot reloading and live development
-5. **VS Code Integration**: How Dev Containers enhance the development experience
-6. **Technology Patterns**: Best practices for different tech stacks
+5. **VS Code Integration**: Dev Container development experience
+6. **Technology Patterns**: Implementation patterns for different tech stacks
 
-## 🎯 Getting Started
+## Getting Started
 
 1. **Clone this repository**:
    ```bash
    git clone <your-repo-url>
-   cd devcontainer-examples
+   cd explore-devcontainers
    ```
 
 2. **Choose an example**:
@@ -68,7 +68,7 @@ Each example demonstrates:
 
 3. **Follow the example's README** for specific instructions
 
-## 🔧 Common Commands
+## Common Commands
 
 Most examples include helper scripts for easy management:
 
@@ -89,19 +89,19 @@ Most examples include helper scripts for easy management:
 ./dev.sh stop
 ```
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
-devcontainer-examples/
+explore-devcontainers/
 ├── go-redis-app/           # Go microservice with Redis
 ├── fullstack-nextjs-nestjs/ # FullStack Next.js + NestJS + PostgreSQL
 ├── README.md               # This file
 └── .gitignore             # Git ignore rules
 ```
 
-## 🤝 Contributing
+## Contributing
 
-Want to add a new example? Here's what to include:
+To add a new example, include:
 
 1. **Complete Dev Container setup** (`.devcontainer/` folder)
 2. **Working application** with clear functionality
@@ -112,13 +112,13 @@ Want to add a new example? Here's what to include:
 4. **Development helper script** (`dev.sh`)
 5. **Tests** to verify functionality
 
-## 📖 Learning Resources
+## Resources
 
 - [VS Code Dev Containers Documentation](https://code.visualstudio.com/docs/remote/containers)
 - [Docker Compose Documentation](https://docs.docker.com/compose/)
 - [Dev Container Specification](https://containers.dev/)
 
-## 🎉 Examples Coming Soon
+## Planned Examples
 
 - Node.js + PostgreSQL + Redis
 - Python + FastAPI + MongoDB
@@ -127,8 +127,4 @@ Want to add a new example? Here's what to include:
 - Java + Spring Boot + MySQL
 - PHP + Laravel + Redis
 
----
-
-**Happy coding! 🚀**
-
-Each example is designed to be self-contained and educational. Pick one that interests you and start exploring!
+Each example is designed to be self-contained and demonstrate specific development patterns and technologies.
